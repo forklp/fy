@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login Form Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/static/assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                                <h1>{{ message }}</h1>
+                        		<div class="form-top-left">
+                        			<h3>报修单</h3>
+                            		<p>请务必准确、如实填写</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="." method="post" class="login-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+			                        	<h3>机主基本信息</h3>
+			                        </div>
+			                    	<div class="form-group">
+			                        	<input type="text" name="form-username" placeholder="姓名" class="form-username form-control" id="form-username">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-sex" placeholder="性别" class="form-username form-control" id="form-sex">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-phone" placeholder="手机号" class="form-username form-control" id="form-phone">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-phone2" placeholder="备用手机" class="form-username form-control" id="form-phone2">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-address" placeholder="住址" class="form-username form-control" id="form-address">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-qq" placeholder="QQ号" class="form-username form-control" id="form-qq">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-idcard" placeholder="身份证/校园卡" class="form-username form-control" id="form-idcard">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-fyvip" placeholder="飞扬会员号（没有填无）" class="form-username form-control" id="form-fyvip">
+			                        </div>
+			                        <div class="form-group">
+			                        	<input type="password" name="form-getcode" placeholder="报修取机码 四位（务必记住）" class="form-password form-control" id="form-getcode">
+			                        </div>
+                                    <div class="form-group">
+			                        	<h3>待修电脑基本信息</h3>
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-computer" placeholder="品牌、型号" class="form-username form-control" id="form-computer">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="password" name="form-password" placeholder="开机密码（建议维修后重新设定，没有填无）" class="form-password form-control" id="form-password">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-peripheral" placeholder="外带附件（没有填无）" class="form-username form-control" id="form-peripheral">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-destroy" placeholder="已有硬件以及外观缺陷（没有填无）" class="form-username form-control" id="form-destroy">
+			                        </div>
+                                    <div class="form-group">
+			                        	<input type="text" name="form-data" placeholder="所需备份的重要数据（没有填无）" class="form-username form-control" id="form-data">
+			                        </div>
+                                    <div class="form-group">
+			                        	<h3>所需服务</h3>
+                                        <input type="checkbox" name="form-server" value="硬件初级检修">硬件初级检修<br>
+                                        <input type="checkbox" name="form-server" value="拆机清洁">拆机清洁<br>
+                                        <input type="checkbox" name="form-server" value="数据恢复">数据恢复<br>
+                                        <input type="checkbox" name="form-server" value="病毒清除、系统修复">病毒清除、系统修复<br>
+                                        <input type="checkbox" name="form-server" value="系统优化">系统优化<br>
+                                        <input type="checkbox" name="form-server" value="软件、驱动安装">软件、驱动安装<br>
+                                        <input type="checkbox" name="form-server" value="系统重装">系统重装<br>
+                                        <br>
+                                        <input type="radio" name="form-reset" value="是">是否可以重装系统（是则勾选）<br>
+                                        <input type="radio" name="form-clear" value="是">是否可以清空硬盘（是则勾选）<br>
+                                        <br>
+                                        <input type="text" name="form-description" placeholder="对故障或维修要求补充描述（没有填无）" class="form-username form-control" id="form-description">
+                                        <h3>请与前台服务人员确定信息无误后提交</h3>
+			                        </div>
+                                    <br>
+
+			                        <button type="submit" class="btn">Sign in!</button>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="/static/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/assets/js/jquery.backstretch.min.js"></script>
+        <script src="/static/assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="/static/assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

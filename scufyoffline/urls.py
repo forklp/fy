@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from offline_repair.views import index
+from offline_repair.views import repair_form, index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', index)
+    url(r'^repair_form/$', repair_form),
+    url(r'^index/$', index),
 ]

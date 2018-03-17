@@ -49,7 +49,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="." method="post" class="login-form">
+			                    <form role="form" action="." method="POST" class="login-form">
                                     {% csrf_token %}
                                     <div class="form-group">
 			                        	<h3>机主基本信息</h3>
@@ -109,8 +109,8 @@
                                         <input type="checkbox" name="form-server" value="软件、驱动安装">软件、驱动安装<br>
                                         <input type="checkbox" name="form-server" value="系统重装">系统重装<br>
                                         <br>
-                                        <input type="radio" name="form-reset" value="是">是否可以重装系统（是则勾选）<br>
-                                        <input type="radio" name="form-clear" value="是">是否可以清空硬盘（是则勾选）<br>
+                                        <input type="radio" name="form-reset" value="1">是否可以重装系统（是则勾选）<br>
+                                        <input type="radio" name="form-clear" value="1">是否可以清空硬盘（是则勾选）<br>
                                         <br>
                                         <input type="text" name="form-description" placeholder="对故障或维修要求补充描述（没有填无）" class="form-username form-control" id="form-description">
                                         <h3>请与前台服务人员确定信息无误后提交</h3>

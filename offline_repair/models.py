@@ -30,6 +30,7 @@ class Computer(models.Model):
     computer_peripheral = models.TextField(null=True)
     computer_destroy = models.TextField(null=True)
     computer_backups_data = models.TextField(null=True)
+    computer_server = models.TextField(null=True)
     computer_is_reset = models.BooleanField(default=False)
     computer_is_clear = models.BooleanField(default=False)
     computer_description = models.TextField(null=True)

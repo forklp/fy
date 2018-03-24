@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>技术员：{{ message }} 你好</title>
+</head>
+<body>
+<h3>
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <input type="text" name="search" id="search" placeholder="输入机主名搜索">
+        <button type="submit">搜索</button>
+    </form>
+</h3>
+<h3>
+    {% if message1 %}
+    {{ message1 }}
+    {% endif %}
+</h3>
+<h3>
+    {% if computer_user %}
+        {% for search in computersearch %}
+            <a href="/computer/{{ search.id }}">{{ search.computer_user.user_name }}</a><br>
+            {{ search.computer_name}}<br>
+            {{ search.computer_condition }}<br>
+            {{ search.computer_server }}<br>
+            <br>
+        {% endfor %}
+    {% endif %}
+</h3>
+<h3>
+    {% for computer in computers %}
+        <a href="/computer/{{ computer.id }}">{{ computer.computer_user }}</a><br>
+        {{ computer.computer_name}}<br>
+        {{ computer.computer_condition }}<br>
+        {{ computer.computer_server }}<br>
+        <br>
+    {% endfor %}
+</h3>
+</body>
+</html>

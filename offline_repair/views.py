@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import models
+from django.shortcuts import redirect
 # Create your views here.
 def repair_form(request):
     if request.method == 'POST':
@@ -58,3 +59,50 @@ def repair_form(request):
 
 def index(request):
     return render(request, 'index.html')
+
+def login(request):
+    if 'name' in request.session:
+        return redirect('/technician')
+    else:
+        if request.method == 'POST':
+            username = request.POST['account']
+            password = request.POST['password']
+            try:
+                technician = models.Technician.objects.get(technician_account=username)
+                if technician.technician_password == password:
+                    request.session['name'] = technician.technician_name
+                    return redirect('/technician')
+                message = '密码错误'
+                return render(request, 'login.html', {'message': message})
+            except:
+                message = '账号不存在'
+                return render(request, 'login.html', {'message': message})
+        return render(request, 'login.html')
+
+def technician(request):
+    if 'name' in request.session:
+        if request.method == 'POST':
+            computeruser = request.POST['search']
+            try:
+                message = request.session['name']
+                computer_user = models.User.objects.get(user_name=computeruser)
+                computersearch = models.Computer.objects.filter(computer_user=computer_user)
+                return render(request, 'technician.html', locals())
+            except:
+                message1 = '此机主不存在'
+                message = request.session['name']
+                computers = models.Computer.objects.all()
+                return render(request, 'technician.html', locals())
+        message = request.session['name']
+        computers = models.Computer.objects.all()
+        return render(request, 'technician.html', locals())
+    return redirect('/login')
+
+
+def computer(request, computerid):
+    try:
+        computer = models.Computer.objects.get(id=computerid)
+        return render(request, 'computer.html', locals())
+    except:
+        return render(request, 'computer.html')
+

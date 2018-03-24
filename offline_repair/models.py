@@ -16,6 +16,8 @@ class User(models.Model):
 
 class Technician(models.Model):
     technician_name = models.CharField(max_length=20, null=True)
+    technician_account = models.CharField(max_length=20, null=True)
+    technician_password = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return self.technician_name
@@ -25,6 +27,7 @@ class Computer(models.Model):
     computer_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     computer_technician = models.ForeignKey(Technician, on_delete=models.CASCADE, null=True)
     computer_name = models.TextField(null=True)
+    computer_condition = models.CharField(max_length=10, default='待修')
     computer_get_code = models.CharField(max_length=20, null=True)
     computer_password = models.CharField(max_length=20, null=True)
     computer_peripheral = models.TextField(null=True)
